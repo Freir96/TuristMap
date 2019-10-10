@@ -1,3 +1,4 @@
+
 export default {  
     greeting: 'Witaj!',
     findCity: 'Znajdź miasto',
@@ -7,4 +8,8 @@ export default {
     all: 'Wszystko',
     searchFor: 'Szukaj',
     entertainment: 'Rozrywka',
+    description: 'Opis',
+    phone: 'telefon',
+    seeOnMap: 'Zobacz na mapie',
+    settings: 'ustawienia',
   };

@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.white,
+    padding: 40,
   },
 });
 

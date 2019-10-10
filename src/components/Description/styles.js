@@ -16,6 +16,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     padding: 20,
   },
+  textContainer: {
+    flexDirection: 'row',
+    marginTop: 15,
+    alignItems: 'center'
+  },
+  standardText: {
+    color: Colors.white
+  },
 });
 
 export default styles;

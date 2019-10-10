@@ -1,0 +1,62 @@
+Microsoft Windows [Version 10.0.17134.1006]
+(c) 2018 Microsoft Corporation. Wszelkie prawa zastrze¿one.
+
+C:\Users\Adam>cd C:\Program Files\Java\jdk1.8.0_211\bin
+
+C:\Program Files\Java\jdk1.8.0_211\bin>keytool -genkeypair -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password:
+Re-enter new password:
+What is your first and last name?
+  [Unknown]:  Adam Gajewski
+What is the name of your organizational unit?
+  [Unknown]:  veye
+What is the name of your organization?
+  [Unknown]:
+What is the name of your City or Locality?
+  [Unknown]:  Gliwice
+What is the name of your State or Province?
+  [Unknown]:
+What is the two-letter country code for this unit?
+  [Unknown]:  PL
+Is CN=Adam Gajewski, OU=veye, O=Unknown, L=Gliwice, ST=Unknown, C=PL correct?
+  [no]:
+What is your first and last name?
+  [Adam Gajewski]:
+What is the name of your organizational unit?
+  [veye]:
+What is the name of your organization?
+  [Unknown]:
+What is the name of your City or Locality?
+  [Gliwice]:
+What is the name of your State or Province?
+  [Unknown]:
+What is the two-letter country code for this unit?
+  [PL]:
+Is CN=Adam Gajewski, OU=veye, O=Unknown, L=Gliwice, ST=Unknown, C=PL correct?
+  [no]:
+What is your first and last name?
+  [Adam Gajewski]:
+What is the name of your organizational unit?
+  [veye]:
+What is the name of your organization?
+  [Unknown]:
+What is the name of your City or Locality?
+  [Gliwice]:
+What is the name of your State or Province?
+  [Unknown]:
+What is the two-letter country code for this unit?
+  [PL]:
+Is CN=Adam Gajewski, OU=veye, O=Unknown, L=Gliwice, ST=Unknown, C=PL correct?
+  [no]:  yes
+
+Generating 2 048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10 000 days
+        for: CN=Adam Gajewski, OU=veye, O=Unknown, L=Gliwice, ST=Unknown, C=PL
+Enter key password for <my-key-alias>
+        (RETURN if same as keystore password):
+Re-enter new password:
+[Storing my-upload-key.keystore]
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore my-upload-key.keystore -destkeystore my-upload-key.keystore -deststoretype pkcs12".
+
+C:\Program Files\Java\jdk1.8.0_211\bin>

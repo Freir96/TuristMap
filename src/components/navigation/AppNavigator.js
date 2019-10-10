@@ -1,9 +1,10 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import {
   createStackNavigator,
   createBottomTabNavigator,
   createAppContainer,
+  AppNavigator,
 } from 'react-navigation';
 
 import Profile from '../Profile';
@@ -15,65 +16,54 @@ import CityView from '../CityView';
 import homeIcon from '../../assets/ic_home/ic_home.png';
 import settingsIcon from '../../assets/ic_settings/ic_settings.png';
 import Colors from '../../helpers/Colors';
-/*
-const iconForTab = ({ state }) => {
-  switch (state.routeName) {
-    case 'Home':
-      return homeIcon;
-    case 'Profile':
-      return settingsIcon;
-    default:
-      return null;
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Button from '../common/Button';
+
+Home.navigationOptions = ({ navigation }) => {
+  return {
+      headerRight:<Button title={"bip"} onPress={console.log('bip7', navigation)}></Button>
+          /*<TouchableOpacity
+              onPress={console.log('bip', navigation)}//navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
+          >
+              <Icon
+                  name={'options-vertical'}
+                  style={{
+                      marginRight: 7,
+                      paddingLeft: 15
+                  }}
+                  size={25}
+                  color={Colors.white}
+              />
+          </TouchableOpacity>*/
   }
-};
-
-const TabIcon = ({ icon, tintColor }) => (// eslint-disable-line
-  <Image
-    source={icon}
-    style={{ tintColor }}
-  />
-);
-
-const ProfileStack = createStackNavigator({ Profile });
-const HomeStack = createStackNavigator({ Home });
-const MapStack = createStackNavigator({ Map });
-const DescriptionStack = createStackNavigator({ Description });
-const AppStack = createBottomTabNavigator(
-  {
-    Home: HomeStack,
-    Profile: ProfileStack,
-    Map: MapStack,
-  },
-  {
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      activeTintColor: Colors.primary,
-      inactiveTintColor: Colors.gray,
-      style: {
-        backgroundColor: Colors.White,
-      },
-    },
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }) => (// eslint-disable-line
-        <TabIcon
-          icon={iconForTab(navigation)}
-          tintColor={tintColor}
-        />
-      ),
-    }),
-  },
-);
-
-export default AppStack;
-*/
+}
+/*Description.navigationOptions = ({ navigation }) => {
+  return {
+      headerRight:<Button title={"bip"} onPress={console.log('bip7', navigation)}></Button>
+          <TouchableOpacity
+              onPress={console.log('bip', navigation)}//navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
+          >
+              <Icon
+                  name={'options-vertical'}
+                  style={{
+                      marginRight: 7,
+                      paddingLeft: 15
+                  }}
+                  size={25}
+                  color={Colors.white}
+              />
+          </TouchableOpacity>
+  }
+}*/
 const MainNavigator = createStackNavigator({
   Home: {screen: Home},
-  Profile: {screen: Profile},
+  //Profile: {screen: Profile},
   Map: {screen: Map},
   Description: {screen: Description},
   CityView: {screen: CityView},
 });
 
 const App = createAppContainer(MainNavigator);
+
 
 export default App;

@@ -8,4 +8,8 @@ export default {
     all: 'All',
     searchFor: 'Search for',
     entertainment: 'Entertainment',
+    description: 'Description',
+    phone: 'phone',
+    seeOnMap: 'See on map',
+    settings: 'settings',
   };

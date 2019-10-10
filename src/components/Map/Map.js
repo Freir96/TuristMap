@@ -20,43 +20,9 @@ import MapService from '../../services/MapService';
 import { Marker } from 'react-native-maps';
 
 import NavigationService from '../../services/NavigationService';
-/*
-export default class Map extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            text: '',
-            value: 'City',
-            isMapReady: false,
-            markers: []
-        }
 
-    }
-
-    componentDidMount() {
-        this.setState({ markers: MapService.getLocations('Gliwice') })
-    }
-
-    onMapLayout = () => {
-        this.setState({ isMapReady: true });
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-
-                <MapView style={{ flex: 1 }} region={{ latitude: 50.2976100, longitude: 18.6765800, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-                    //onLayout={this.onMapLayout}
-                    //annotations={MapService.getLocations('Gliwice')}
-                    showsUserLocation={true}
-                />
-                   
-            </View>
-                )
-            }
-}*/
 const marker = MapService.getLocations("Gliwice")[0];
-console.log('bip', marker);
+//console.log('bip', marker);
 const marker2 = {
     coordinates: {
         latitude: 50.2987500, longitude: 18.6765800,
@@ -68,29 +34,53 @@ const marker3 = {
         latitude: 50.2976100, longitude: 18.6765800,
     }
 }
-if (marker.coordinates === marker3.coordinates)
-    console.log('bip ===');
-else
-    console.log('bip !==', marker.coordinates, marker3.coordinates);
-export default function Map(props) {
-    return (
-        <MapView style={{ flex: 1 }} region={{ latitude: 50.2976100, longitude: 18.6765800, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }}
-            //onLayout={this.onMapLayout}
-            //annotations={MapService.getLocations('Gliwice')}
-            showsUserLocation={true}
-        >
-            {MapService.getLocations('Gliwice').map((marker) => (
-                <MapView.Marker
-                    coordinate={marker.coordinates}
-                    title={marker.title}
-                    description={marker.description}
-                    key={marker.key}
-                    //onPress={() => props.navigation.navigate('Description', { param: marker })}
-                    onCalloutPress={() => props.navigation.navigate('Description', { param: marker })}
-                >
-                    <Text>{marker.title}</Text>
-                </MapView.Marker>
-            ))}
-        </MapView>
-    )
+
+export default class Map extends React.Component{
+    constructor(props) {
+        super(props);
+        this.markers = MapService.getLocations(props.navigation.state.params.city);
+        this.state = {
+            markers: this.markers,
+            place: this.getStartingMapCoordinates(),
+        }
+    }
+
+    findPlaceById(id) {
+        for(var i = 0; i < this.markers.length; i++) {
+            if(this.markers[i].key === id)
+                return this.markers[i];
+        }
+    }
+
+    getStartingMapCoordinates() {
+        if(this.props.navigation.state.params.placeId === undefined)
+            return MapService.getCityByName(this.props.navigation.state.params.city);
+        else
+            return this.findPlaceById(this.props.navigation.state.params.placeId)
+    }
+    //console.log('bip', props)
+    //console.log('bip', props.navigation.state.params.city)
+    render() {//{ latitude: this.state.place.latitude, longitude: this.state.place.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
+        return (
+            <MapView style={{ flex: 1 }} region={this.state.place.coordinates}
+                //onLayout={this.onMapLayout}
+                //annotations={MapService.getLocations('Gliwice')}
+                showsUserLocation={true}
+            >
+                {this.state.markers.map((marker) => (
+                    <MapView.Marker
+                        coordinate={marker.coordinates}
+                        title={marker.title}
+                        description={marker.description}
+                        key={marker.key}
+                        //onPress={() => props.navigation.navigate('Description', { param: marker })}
+                        onCalloutPress={() => this.props.navigation.navigate('Description', { param: marker })}
+                    >
+                    </MapView.Marker>
+                ))}
+            </MapView>
+        )
+    }
+
 }
+//<Text>{marker.title}</Text>

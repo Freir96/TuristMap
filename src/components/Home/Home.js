@@ -4,6 +4,7 @@ import {
   TextInput,
   ScrollView,
   Button,
+  TouchableOpacity,
   Text,
 } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -16,11 +17,16 @@ import getUser from '../../selectors/UserSelectors';
 
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import SearchableDropdown from 'react-native-searchable-dropdown';
+import TextListSearch from '../TextListSearch';
+import { SearchBar } from 'react-native-elements';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import MapService from '../../services/MapService';
 import { Marker } from 'react-native-maps';
 //import Button from '../common/Button';
+
+import OptionsMenu from '../menu/OptionsMenu';
+import MenuOption from '../menu/option/MenuOption';
 
 import I18n from '../../i18n/i18n';
 
@@ -52,6 +58,31 @@ export default class Home extends React.Component {
     }
 
   }
+
+  static navigationOptions = ({ navigation }) => {
+    //let title = <Text style={{ fontSize: 20 }}>{navigation.getParam('name')}</Text>
+    //let currentProfile = navigation.getParam('profile')
+    //console.log('bip', navigation.getParam('title'));
+    return {
+      title: 'Home',
+      /*headerRight:
+        <TouchableOpacity
+          onPress={navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
+        >
+          <Icon
+            name={'options-vertical'}
+            style={{
+              marginRight: 7,
+              paddingLeft: 15
+            }}
+            size={25}
+            color={colors.white}
+          />
+        </TouchableOpacity>,*/
+    }
+  }
+
+  _onHamburgerClicked = () => { this.optionsMenu.setVisibility(!this.optionsMenu.state.visible) }
 
   /*componentDidMount() {
     this.setState({ markers: MapService.getLocations('Gliwice') })
@@ -88,16 +119,27 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { width: '100%' }]}>
+
+        <OptionsMenu
+          ref={(ref) => this.optionsMenu = ref}>
+          <MenuOption text={I18n.t('phone')} onPress={() => console.log('bip ckick')} />
+          <MenuOption text={I18n.t('settings')} onPress={() => console.log('bip ckick')} />
+          <MenuOption text={I18n.t('phone')} onPress={() => console.log('bip ckick')} />
+          <MenuOption text={I18n.t('phone')} onPress={() => console.log('bip ckick')} />
+          <MenuOption text={I18n.t('phone')} onPress={() => console.log('bip ckick')} />
+        </OptionsMenu>
         <View style={{
           backgroundColor: this.state.text,
           borderBottomColor: '#000000',
           borderBottomWidth: 1
         }}
         >
-          <SearchableDropdown
+          {/*<SearchableDropdown
             onItemSelect={(item) => {
-              this.props.navigation.navigate('CityView', { name: item })
+              //console.log('bip', item)
+              this.props.navigation.navigate('CityView', { name: item.name })
+              //this.props.navigation.navigate('CityView', { name: item })
               //const items = this.state.selectedItems;
               //items.push(item)
               //this.setState({ selectedItems: items });
@@ -138,7 +180,7 @@ export default class Home extends React.Component {
                 nestedScrollEnabled: true,
               }
             }
-          />
+          />*/}
           {/*<TextInput onChangeText={(text) => this.setState({ text })}
             //multiline={true}
             //numberOfLines={2}
@@ -156,8 +198,10 @@ export default class Home extends React.Component {
             onPress={(value) => { this.setState({ value: value }) }}
           />*/}
         </View>
+        
+        <TextListSearch /*style={{margin: 10}}*/ />
         <ScrollView>
-          <Button onPress={() => this.props.navigation.navigate('Map', { name: 'Jane' })} title="Press Me"></Button>
+          {/*<Button onPress={() => this.props.navigation.navigate('Map', { city: 'Gliwice' })} title="Press Me"></Button>*/}
           <View style={{ marginTop: 200 }}>
             <Text>{I18n.t('sugestions')}</Text>
             {MapService.getSugestionsCitys().map((city) => (
@@ -188,10 +232,24 @@ function Home() {
     </View>
   );
 }*/
-
+/*
 Home.navigationOptions = {
   title: strings.home,
-};
+  headerRight:
+    <TouchableOpacity
+      onPress={navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
+    >
+      <Icon
+        name={'options-vertical'}
+        style={{
+          marginRight: 7,
+          paddingLeft: 15
+        }}
+        size={25}
+        color={colors.white}
+      />
+    </TouchableOpacity>,
+};*/
 /*
       <Text style={TextStyles.lightTitle}>
         {strings.home}

@@ -9,13 +9,14 @@ import {
 import { useSelector } from 'react-redux';
 
 import styles from './styles';
-import colors from'../../styles/colors';
+import colors from '../../styles/colors';
 
 import TextStyles from '../../helpers/TextStyles';
 import strings from '../../localization';
 import getUser from '../../selectors/UserSelectors';
 
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import SearchableDropdown from 'react-native-searchable-dropdown';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import MapService from '../../services/MapService';
@@ -32,20 +33,21 @@ var radio_props = [
 ];
 
 export default class CityView extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             text: '',
             value: 'all',
             isMapReady: false,
             markers: [],
-            cityList: MapService.getCityList(),
+            placesList: MapService.getLocations(props.navigation.state.params.name),
         }
+        this.placesList = MapService.getLocations(props.navigation.state.params.name)
 
     }
 
     static navigationOptions = ({ navigation }) => {
-        let title = <Text style={{fontSize: 20, color: colors.darkGrey}}>{navigation.getParam('name')}</Text>
+        let title = <Text style={{ fontSize: 20, color: colors.darkGrey }}>{navigation.getParam('name')}</Text>
         //let currentProfile = navigation.getParam('profile')
 
         return {
@@ -66,17 +68,27 @@ export default class CityView extends React.Component {
         var options = [];
         const sugestions = MapService.getSugestionsPlaces();
         for (var i = 0; i < sugestions.length; i++) {
-            console.log('bip2', sugestions[i])
+            //console.log('bip2', sugestions[i])
             options.push(
                 <Button
                     key={i}
                     style={{ margin: 5 }}
-                    onPress={() => this.props.navigation.navigate('Description', { param: sugestions[i] })}
+                    onPress={() => this.props.navigation.navigate('Description', { param: sugestions[i], city: props.navigation.state.params.name })}
                     title={sugestions[i].title}>
                 </Button>);
         }
         return options;
     }
+
+    getMatchingPlaces(substring) {
+        var matchingPlaces = [];
+        for (var i = 0; i < this.placesList.length; i++) {
+          if (this.placesList[i].title.includes(substring))
+          matchingPlaces.push({ key: i, name: this.placesList[i].title, });
+        }
+        //this.setState({cityList: matchingCitys});
+        return matchingPlaces;
+      }
 
     render() {
         return (
@@ -96,12 +108,51 @@ export default class CityView extends React.Component {
                         animation={true}
                         onPress={(value) => { this.setState({ value: value }) }}
                     />
-                    <TextInput onChangeText={(text) => this.setState({ text })}
-                        //multiline={true}
-                        //numberOfLines={2}
-                        style={{ backgroundColor: '#FAFAFA', width: 250 }}
-                        //value={I18n.t(this.state.text)}
-                        placeholder={'' + I18n.t(this.state.value) + '...'}
+                    <SearchableDropdown
+                        onItemSelect={(item) => {
+                            //console.log('bip', item)
+                            this.props.navigation.navigate('Description', {param: item, name: item.name, key: item.key, city: this.props.navigation.state.params.name})// { name: item.name, item: item, key: item.key, city: this.props.navigation.state.params.name }
+                            //this.props.navigation.navigate('CityView', { name: item })
+                            //const items = this.state.selectedItems;
+                            //items.push(item)
+                            //this.setState({ selectedItems: items });
+                        }}
+                        containerStyle={{ padding: 5 }}
+                        onRemoveItem={(item, index) => {
+                            //const items = this.state.selectedItems.filter((sitem) => sitem.id !== item.id);
+                            //this.setState({ selectedItems: items });
+                        }}
+                        itemStyle={{
+                            padding: 10,
+                            marginTop: 2,
+                            backgroundColor: '#ddd',
+                            borderColor: '#bbb',
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        }}
+                        itemTextStyle={{ color: '#222' }}
+                        itemsContainerStyle={{ maxHeight: 140 }}
+                        items={this.getMatchingPlaces(this.state.text)}
+                        //defaultIndex={2}
+                        resetValue={false}
+                        textInputProps={
+                            {
+                                placeholder: I18n.t('findCity'),
+                                underlineColorAndroid: "transparent",
+                                style: {
+                                    padding: 12,
+                                    borderWidth: 1,
+                                    borderColor: '#ccc',
+                                    borderRadius: 5,
+                                },
+                                onTextChange: text => this.setState({ text: text })//this.getMatchingCitys(text)
+                            }
+                        }
+                        listProps={
+                            {
+                                nestedScrollEnabled: true,
+                            }
+                        }
                     />
                 </View>
                 <ScrollView>
@@ -112,7 +163,7 @@ export default class CityView extends React.Component {
                                 <Button
                                     key={marker.key}
                                     style={{ marginTop: 15 }}
-                                    onPress={() => this.props.navigation.navigate('Description', { param: marker, title: marker.title })}
+                                    onPress={() => this.props.navigation.navigate('Description', { param: marker, name: marker.title, city: this.props.navigation.state.params.name })}
                                     title={marker.title}>
                                 </Button>
                             </View>
