@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 40,
   },
+  element: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
 });
 
 export default styles;

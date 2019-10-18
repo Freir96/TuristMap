@@ -123,8 +123,6 @@ export default class MapService {
     }
 
     static getDescriptionById(id) {
-        //console.log('bip4', id)
-        //console.log('bip44', description[id])
         return description[id];
     }
 

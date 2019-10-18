@@ -65,6 +65,10 @@
 		312A8FED416E47BD9E9AD1EE /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CC6EB22F0374D95A46B92E3 /* Octicons.ttf */; };
 		38B1D08BAAEC4DF987238AC3 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB37AEFBCBA645A08DDF8A0E /* SimpleLineIcons.ttf */; };
 		759E46F35A8542B0A30FEAA1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B25A6D9D54D84D08BA407ACF /* Zocial.ttf */; };
+		DEACBA29E683401E8261BE03 /* libGCDWebServers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C08D6D6CCF4A5F873C612C /* libGCDWebServers.a */; };
+		7A3C7D50743041B395D8D016 /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ED61EB5BC94F839092620F /* libRealmJS.a */; };
+		2495646F7FAE47058634B48A /* RealmJSTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = E3A51949D3944BBFA6149028 /* RealmJSTests.xctest */; };
+		93560312975E4D7AA43EB278 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE88F4812C6440DA64B15A3 /* libRNFS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -405,6 +409,12 @@
 		8CC6EB22F0374D95A46B92E3 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EB37AEFBCBA645A08DDF8A0E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		B25A6D9D54D84D08BA407ACF /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		99113724B6CC46C6B9CA5ADE /* RealmJS.xcodeproj */ = {isa = PBXFileReference; name = "RealmJS.xcodeproj"; path = "../node_modules/realm/src/RealmJS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		08C08D6D6CCF4A5F873C612C /* libGCDWebServers.a */ = {isa = PBXFileReference; name = "libGCDWebServers.a"; path = "libGCDWebServers.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A5ED61EB5BC94F839092620F /* libRealmJS.a */ = {isa = PBXFileReference; name = "libRealmJS.a"; path = "libRealmJS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		E3A51949D3944BBFA6149028 /* RealmJSTests.xctest */ = {isa = PBXFileReference; name = "RealmJSTests.xctest"; path = "RealmJSTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
+		7A7936817FCC48AEAAE45223 /* RNFS.xcodeproj */ = {isa = PBXFileReference; name = "RNFS.xcodeproj"; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0AE88F4812C6440DA64B15A3 /* libRNFS.a */ = {isa = PBXFileReference; name = "libRNFS.a"; path = "libRNFS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +451,10 @@
 				FE48A2D1D8E54111A08A70ED /* libReactNativeLocalization.a in Frameworks */,
 				EC386017855944F497C19EC9 /* libRNPaypal.a in Frameworks */,
 				8DF04209F39A49AC903C612C /* libRNVectorIcons.a in Frameworks */,
+				DEACBA29E683401E8261BE03 /* libGCDWebServers.a in Frameworks */,
+				7A3C7D50743041B395D8D016 /* libRealmJS.a in Frameworks */,
+				2495646F7FAE47058634B48A /* RealmJSTests.xctest in Resources */,
+				93560312975E4D7AA43EB278 /* libRNFS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +653,8 @@
 				15F448A6C24D41928171DF86 /* ReactNativeLocalization.xcodeproj */,
 				AAB8A48443F84DACAF4919F2 /* RNPaypal.xcodeproj */,
 				5A6FD167B119407DA68FBBBB /* RNVectorIcons.xcodeproj */,
+				99113724B6CC46C6B9CA5ADE /* RealmJS.xcodeproj */,
+				7A7936817FCC48AEAAE45223 /* RNFS.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1317,6 +1333,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1327,6 +1347,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1358,6 +1380,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1368,6 +1394,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1397,6 +1425,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1425,6 +1455,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1464,6 +1496,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1474,6 +1510,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1513,6 +1551,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1523,6 +1565,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1561,6 +1605,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1571,6 +1619,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1609,6 +1659,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1619,6 +1673,8 @@
 					"$(SRCROOT)\..\node_modules\react-native-localization\ios",
 					"$(SRCROOT)\..\node_modules\react-native-paypal\ios",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 				);
 			};
 			name = Release;

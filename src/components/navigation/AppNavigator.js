@@ -21,7 +21,7 @@ import Button from '../common/Button';
 
 Home.navigationOptions = ({ navigation }) => {
   return {
-      headerRight:<Button title={"bip"} onPress={console.log('bip7', navigation)}></Button>
+      headerRight:<Button title={"bip"} onPress={()=>console.log('bip7', navigation)}></Button>
           /*<TouchableOpacity
               onPress={console.log('bip', navigation)}//navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
           >

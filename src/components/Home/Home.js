@@ -199,9 +199,8 @@ export default class Home extends React.Component {
           />*/}
         </View>
         
-        <TextListSearch /*style={{margin: 10}}*/ />
-        <ScrollView>
-          {/*<Button onPress={() => this.props.navigation.navigate('Map', { city: 'Gliwice' })} title="Press Me"></Button>*/}
+        <TextListSearch places={this.cityList}/*style={{margin: 10}}*/ />
+        {/*<ScrollView>
           <View style={{ marginTop: 200 }}>
             <Text>{I18n.t('sugestions')}</Text>
             {MapService.getSugestionsCitys().map((city) => (
@@ -214,50 +213,8 @@ export default class Home extends React.Component {
               </View>
             ))}
           </View>
-        </ScrollView>
+        </ScrollView>*/}
       </View>
     )
   }
 }
-//*/
-/*
-function Home() {
-  const user = useSelector(state => getUser(state));
-  const getMessage = useCallback(() => `${strings.homeMessage} ${user && user.name}`, [user]);
-
-  return (
-    <View style={styles.container}>
-      <TextInput onChangeText={(text) => this.setState({text})}></TextInput>
-      <ScrollView></ScrollView>
-    </View>
-  );
-}*/
-/*
-Home.navigationOptions = {
-  title: strings.home,
-  headerRight:
-    <TouchableOpacity
-      onPress={navigation.state.routes[navigation.state.index].params ? navigation.state.routes[navigation.state.index].params['onHamburgerClicked'] : null}
-    >
-      <Icon
-        name={'options-vertical'}
-        style={{
-          marginRight: 7,
-          paddingLeft: 15
-        }}
-        size={25}
-        color={colors.white}
-      />
-    </TouchableOpacity>,
-};*/
-/*
-      <Text style={TextStyles.lightTitle}>
-        {strings.home}
-      </Text>
-      <Text>
-        {getMessage()}
-      </Text>
-
-*/
-
-//export default Home;

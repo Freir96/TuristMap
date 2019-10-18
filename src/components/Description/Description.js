@@ -30,8 +30,6 @@ var title = ''
 export default class Description extends React.Component {
     constructor(props) {
         super(props);
-        console.log('bip3', props.navigation.state);
-        //console.log('bip4', MapService.getDescriptionById(this.getParams(props).key));
         this.state = {
             params: this.getParams(props),//props.navigation.state.params.param,
             id: this.getParams(props).key,
@@ -39,17 +37,12 @@ export default class Description extends React.Component {
             phone: '000000000',
             city: this.props.navigation.state.params.city,
         }
-        //console.log('bip', this.props.navigation.state);
         this.title = props.navigation.state.params.name//this.getParams(props).title;
-        console.log('bip4', this.state.params)
-        //console.log('bip44', this.state.description)
     }
 
     getParams(props) {
-        console.log('bip2', props.navigation.state)
         if (props.navigation.state.params.param === undefined)
             return props.navigation.state.params;
-        console.log('bip2', props.navigation.state.params.param)
         return props.navigation.state.params.param;
     }
 
