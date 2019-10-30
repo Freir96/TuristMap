@@ -20,6 +20,8 @@ export default class TextListSearch extends React.Component {
             showPlaces: props.places,//navigation.state.params.places,
         }
         //console.log('bip4', this.state.places)
+        this.navfunction = props.navfunction;
+        console.log('bip', props)
     }
 
     componentDidMount() {
@@ -59,7 +61,7 @@ export default class TextListSearch extends React.Component {
 
     tmpReturnElement(name, key) {
         //console.log('bip5', name, key)
-        return <Element place={name} key={key} />;
+        return <Element place={name} key={key} navfunction={this.props.navfunction}/>;
     }
 
     getPlaces() {
@@ -71,8 +73,11 @@ export default class TextListSearch extends React.Component {
         for(var i=0; i < this.state.showPlaces.length; i++) {
             //console.log('bip5', this.state.showPlaces[i]);
             //tmp.push(this.tmpReturnElement(this.state.showPlaces[i].name, this.state.showPlaces[i].key))
-            tmp.push(<Element place={this.state.showPlaces[i].name} 
-                key={this.state.showPlaces[i].key} />)
+            tmp.push(<Element key={this.state.showPlaces[i].key} 
+                type={"city"}
+                place={this.state.showPlaces[i].name} 
+                navfunction={this.navfunction}
+                 />)
         }
         return tmp;
     }

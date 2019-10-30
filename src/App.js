@@ -5,6 +5,9 @@ import Navigation from './components/navigation';
 import Colors from './helpers/Colors';
 import { store, persist } from './reducers';
 
+import SideMenu from 'react-native-side-menu';
+import menu from './components/menu/menu';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -29,9 +32,13 @@ export default function App() {
     </View>
   );
 
+  const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
+
   const loaded = (
     <Provider store={store}>
-      <Navigation />
+      <SideMenu menu={menu}>
+        <Navigation />
+      </SideMenu>
     </Provider>
   );
 

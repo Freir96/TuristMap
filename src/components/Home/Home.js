@@ -199,7 +199,7 @@ export default class Home extends React.Component {
           />*/}
         </View>
         
-        <TextListSearch places={this.cityList}/*style={{margin: 10}}*/ />
+        <TextListSearch places={this.cityList} navfunction={(name) => {this.props.navigation.navigate('CityView', { name: name })}}/*style={{margin: 10}}*/ />
         {/*<ScrollView>
           <View style={{ marginTop: 200 }}>
             <Text>{I18n.t('sugestions')}</Text>
@@ -218,3 +218,13 @@ export default class Home extends React.Component {
     )
   }
 }
+/*
+Home.navigationOptions = {
+  drawer: {
+      icon: () => (
+        <Image
+          source={require('../../../imgs/home.png')}
+          style={[styles.tabIcon, {tintColor: 'black'}]}
+        />
+  )}
+};*/

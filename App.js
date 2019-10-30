@@ -53,6 +53,8 @@ import MapView from 'react-native-maps';
 
 //   return ready ? loaded : loading;
 // }
+
+
 import React, { useState, useEffect } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
@@ -111,4 +113,23 @@ export default function App() {
               />
         ))}
       </MapView>
+*/
+/*
+import React, { Component } from 'react';
+import { AppRegistry, Dimensions } from 'react-native';
+import { createDrawerNavigator } from 'react-navigation';
+
+import SideMenu from './src/components/menu/menu';
+import stackNav from './src/components/navigation/stackNav';
+
+const drawernav = createDrawerNavigator({
+  Item1: {
+      screen: stackNav,
+    }
+  }, {
+    contentComponent: SideMenu,
+    drawerWidth: Dimensions.get('window').width - 120,
+});
+
+AppRegistry.registerComponent('Demo', () => drawernav);
 */

@@ -20,49 +20,108 @@ export default class Element extends React.Component {
         this.state = {
             name: props.place,//navigation.state.params.place.name,
             favorite: false,
+            type: props.type,
         }
-        this._retrieveData()
-        console.log('bip1', this.state.favorite)
+        //this._retrieveData()
+        
+        //console.log('bip1', this.state.favorite)
+        //console.log('bip2', props)
+        this.navfunction = props.navfunction;
     }
 
-    async _storeData(isFavorite) {
+    async componentDidMount() {
+        console.log("bip fav", await this.isonlist())
+        this.setState({favorite: await this.isonlist()})
+        /*AsyncStorage.getItem("myKey").then((value) => {
+           // this.setState({"myKey": value});
+           console.log("bip async", value)
+        }).done();
+        */
+       //AsyncStorage.setItem('Fav-' + this.state.type, "");
+    }
+
+    async isonlist() {
+        const list = await this._retrieveData();
+        var totest = list.split(";");
+        console.log("bip list", list);
+        for (var i = 0; i < totest.length; i++) {
+            if(totest[i] === this.state.name) {
+                console.log("bip val", totest[i]);
+                return true;
+            }
+                
+        }
+        //console.log("bip val", "not");
+        return false;
+    }
+
+    async removeFromList() {
+        var list = await this._retrieveData();
+        console.log("bip remove", list);
+        list = list.replace(this.state.name + ";", "");
+        console.log("bip remove2", list);
+        this._storeData(list);
+    }
+
+    async addToList() {
+        var list = await this._retrieveData();
+        console.log("bip list2", list);
+        list = list + this.state.name + ";";
+        console.log("bip list2", list);
+        this._storeData(list);
+    }
+
+    async _storeData(val) {
         try {
             //AsyncStorage.setItem('Fav', isFavorite);
             //this._retrieveData();
-            AsyncStorage.setItem('Fav-' + this.state.name, isFavorite);
+            AsyncStorage.setItem('Fav-' + this.state.type, val);
         } catch (error) {
-            // Error saving data
+            console.log('bip err', error)
         }
     };
     
     changeFavoriteData() {
-        this._storeData(!this.state.favorite);
+        if (this.state.favorite) {
+            this.removeFromList();
+        }
+        else {
+            this.addToList();
+        }
+        //this._storeData(!this.state.favorite);
         this.setState({ favorite: !this.state.favorite });
     }
 
     async _retrieveData() {
+        var value = ''
         try {
             //const value = await AsyncStorage.getItem('Fav');
-            const value = await AsyncStorage.getItem('Fav-' + this.state.name);
-            if (value !== null) {
-                // We have data!!
-                console.log('bip1', value)
-                this.setState({favorite: value})
-                console.log(value);
+            value = await AsyncStorage.getItem('Fav-' + this.state.type);
+            if (value == null) {
+                try {
+                    //AsyncStorage.setItem('Fav', isFavorite);
+                    AsyncStorage.setItem('Fav-' + this.state.type, '');
+                } catch (error) {
+                    console.log('bip err', error)
+                }
+                return "";
             }
         } catch (error) {
             console.log('bip err', error)
         }
+        return value;
     }
 
     _onPressButton() {
-
+        //this.props.navfunction(this.state.name)
+        console.log('bip3', this.state)
+        this.navfunction(this.state.name);
     }
 
     render() {
-        console.log('bip1', this.props.places)
+        //console.log('bip1', this.props.places)
         return (
-            <TouchableOpacity onPress={this._onPressButton}>
+            <TouchableOpacity onPress={() => this._onPressButton()}>
                 <View style={styles.element, {
                     borderBottomColor: 'black',
                     borderBottomWidth: 1,
