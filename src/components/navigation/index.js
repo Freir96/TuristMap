@@ -26,7 +26,7 @@ import stackNav from './stackNav';
 
 const drawernav = createDrawerNavigator({
   Item1: {
-    screen: stackNav,
+    screen: stackNav,//{ screen:({navigation}) => <stackNav screenProps={drawerNavigation: navigation} /> },
   }
 }, {
   contentComponent: SideMenu,

@@ -108,7 +108,7 @@ export default class MapService {
     static getCityList() {
         return ['London', 'Paris', 'Gliwice']
     }
-    static getSugestionsCitys() {
+    static getSugestionscities() {
         return ['Gliwice'];
     }
 

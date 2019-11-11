@@ -16,10 +16,12 @@ import strings from '../../localization';
 import getUser from '../../selectors/UserSelectors';
 
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import TextListSearch from '../TextListSearch';
 import SearchableDropdown from 'react-native-searchable-dropdown';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import MapService from '../../services/MapService';
+import PlaceService from '../../services/PlaceService';
 import { Marker } from 'react-native-maps';
 //import Button from '../common/Button';
 
@@ -40,14 +42,17 @@ export default class CityView extends React.Component {
             value: 'all',
             isMapReady: false,
             markers: [],
-            placesList: MapService.getLocations(props.navigation.state.params.name),
+            placesList: PlaceService.getPlacesFromCity(props.navigation.state.params.place.name),
+            //placesList: MapService.getLocations(props.navigation.state.params.name),
         }
-        this.placesList = MapService.getLocations(props.navigation.state.params.name)
+        this.placesList = PlaceService.getPlacesFromCity(props.navigation.state.params.place.name);
 
     }
 
     static navigationOptions = ({ navigation }) => {
-        let title = <Text style={{ fontSize: 20, color: colors.darkGrey }}>{navigation.getParam('name')}</Text>
+        let title = <Text style={{ fontSize: 20, color: colors.darkGrey }}>
+            {navigation.getParam('place').name}
+        </Text>
         //let currentProfile = navigation.getParam('profile')
 
         return {
@@ -64,7 +69,7 @@ export default class CityView extends React.Component {
         }
     }
 
-    getSugestionsPlaces() {
+    /*getSugestionsPlaces() {
         var options = [];
         const sugestions = MapService.getSugestionsPlaces();
         for (var i = 0; i < sugestions.length; i++) {
@@ -78,17 +83,17 @@ export default class CityView extends React.Component {
                 </Button>);
         }
         return options;
-    }
+    }*/
 
-    getMatchingPlaces(substring) {
+    /*getMatchingPlaces(substring) {
         var matchingPlaces = [];
         for (var i = 0; i < this.placesList.length; i++) {
-          if (this.placesList[i].title.includes(substring))
-          matchingPlaces.push({ key: i, name: this.placesList[i].title, });
+            if (this.placesList[i].title.includes(substring))
+                matchingPlaces.push({ key: i, name: this.placesList[i].title, });
         }
-        //this.setState({cityList: matchingCitys});
+        //this.setState({cityList: matchingcities});
         return matchingPlaces;
-      }
+    }*/
 
     render() {
         return (
@@ -99,6 +104,7 @@ export default class CityView extends React.Component {
                     borderBottomWidth: 1
                 }}
                 >
+                    {/*
                     <RadioForm
                         radio_props={radio_props}
                         initial={0}
@@ -145,7 +151,7 @@ export default class CityView extends React.Component {
                                     borderColor: '#ccc',
                                     borderRadius: 5,
                                 },
-                                onTextChange: text => this.setState({ text: text })//this.getMatchingCitys(text)
+                                onTextChange: text => this.setState({ text: text })//this.getMatchingcities(text)
                             }
                         }
                         listProps={
@@ -153,9 +159,18 @@ export default class CityView extends React.Component {
                                 nestedScrollEnabled: true,
                             }
                         }
-                    />
+                    />*/}
                 </View>
+                <TextListSearch
+                    searchbar={true}
+                    type={"place"}
+                    prefix={this.props.navigation.state.params.place.name}
+                    places={this.placesList}
+                    navfunction={(place) => { this.props.navigation.navigate('Description', { place: place }) }}/*style={{margin: 10}}*/
+                />
                 <ScrollView>
+
+                    {/*
                     <View style={{ marginTop: 200 }}>
                         <Text>{I18n.t('sugestions')}</Text>
                         {MapService.getSugestionsPlaces().map((marker) => (
@@ -169,6 +184,7 @@ export default class CityView extends React.Component {
                             </View>
                         ))}
                     </View>
+                        */}
                 </ScrollView>
             </View>
         )

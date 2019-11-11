@@ -32,7 +32,7 @@ export default class MenuTile extends React.Component {
                 <Text
                 //style={[TextStyles.fieldTitle, props.textStyle]}
                 >
-                    dupa2
+                    
                 </Text>
             </TouchableOpacity>
         )
