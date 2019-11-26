@@ -29,6 +29,14 @@ export default class FavoriteService {
         this._storeData(list, key);
     }
 
+    static async removeFromList(val, key) {
+        var list = await this._retrieveData(key);
+        console.log("bip remove", list);
+        list = list.replace(val + ";", "");
+        console.log("bip remove2", list);
+        this._storeData(list);
+    }
+
     static async _storeData(val, key) {
         try {
             //AsyncStorage.setItem('Fav', isFavorite);
@@ -42,7 +50,7 @@ export default class FavoriteService {
     static async isOnList(val, key) {
         const list = await this._retrieveData(key);
         var totest = list.split(";");
-        console.log("bip list", list,"val", val);
+        console.log("bip list", list, "val", val);
         for (var i = 0; i < totest.length; i++) {
             if (totest[i] === val) {
                 console.log("bip val", totest[i]);

@@ -129,7 +129,7 @@ export default class Element extends React.Component {
         //this.props.navfunction(this.state.name)
         console.log('bip3', this.state.name)
         //this.navfunction(this.state.name);//change back//or not
-        this.navfunction({name: this.state.name, id: this.state.id});
+        this.navfunction({name: this.state.name, id: this.state.id, favkey: this.state.favkey});
 
     }
 

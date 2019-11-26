@@ -59,7 +59,7 @@ export default class TextListSearch extends React.Component {
     setShowcities(substring) {
         var tmp = [];
         for (var i = 0; i < this.state.places.length; i++) {
-            if (this.state.places[i].name.includes(substring)) {
+            if (this.state.places[i].name.toUpperCase().includes(substring.toUpperCase())) {
                 tmp.push({ name: this.state.places[i].name, key: this.state.places[i].id, id: this.state.places[i].id });
             }
         }
@@ -69,7 +69,7 @@ export default class TextListSearch extends React.Component {
     setShowPlaces(substring) {
         var tmp = [];
         for (var i = 0; i < this.state.places.length; i++) {
-            if (this.state.places[i].title.includes(substring) && this.state.places[i].title !== undefined) {
+            if (this.state.places[i].title.toUpperCase().includes(substring.toUpperCase()) && this.state.places[i].title !== undefined) {
                 tmp.push({ name: this.state.places[i].title, 
                     key: this.state.places[i].id, 
                     id: this.state.places[i].id, 
@@ -82,7 +82,7 @@ export default class TextListSearch extends React.Component {
 
     SearchFilterFunction(clear) {
         this.setState({ search: clear });
-        this.setShow(search);
+        this.setShow('');
     }
 
     /**

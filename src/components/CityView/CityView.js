@@ -51,7 +51,7 @@ export default class CityView extends React.Component {
 
     static navigationOptions = ({ navigation }) => {
         let title = <Text style={{ fontSize: 20, color: colors.darkGrey }}>
-            {navigation.getParam('place').name}
+            {"tmp"/*navigation.getParam('place').name*/}
         </Text>
         //let currentProfile = navigation.getParam('profile')
 

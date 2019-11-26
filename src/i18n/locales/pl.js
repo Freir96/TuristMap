@@ -18,4 +18,13 @@ export default {
     places: "Miejsca",
     cities: "Miasta",
     favorites: "Ulubione",
+    photos: "Zdjęcia",
+    city: "Miasta",
+    menu: "Menu",
+    information: "Informacje",
+    restaurants: "Restauracje",
+    close: "Zamknij",
+    contact: "Kontakt",
+    weather: "Pogoda",
+    atractions: "Atrakcje",
   };

@@ -8,6 +8,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.white,
   },
+  element: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
+  horizontalContainer: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    flex: 1, flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 40,
+  },
   formContainer: {
     alignSelf: 'stretch',
     justifyContent: 'center',
@@ -22,8 +34,12 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   standardText: {
-    color: Colors.white
+    color: Colors.black
   },
+  headline: {
+    backgroundColor: Colors.lightgray,
+    width: "100%",
+},
 });
 
 export default styles;

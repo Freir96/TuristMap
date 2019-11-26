@@ -14,19 +14,25 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 
 import Home from '../Home';
 import Map from '../Map';
+import MainMap from '../Map/MainMap';
 import Description from '../Description';
 import CityView from '../CityView';
 import Settings from '../Settings';
 import Favorites from '../Favorites';
 import Places from '../Places/Places';
+import Informations from '../Informations/Informations';
+import ContactInfo from '../ContactInfo/ContactInfo';
+import Weather from '../Weather/Weather';
 
 import I18n from '../../i18n/i18n';
 
 const stackNav = createStackNavigator({
   Main: {
-    screen: Home,
+    //screen: Home,
+    screen: MainMap,
     navigationOptions: ({ navigation }) => ({
-      title: "Home",
+      //title: "Home",
+      title: I18n.t("map"),
       headerRight: (<TouchableOpacity onPress={() => navigation.openDrawer() /*navigation.navigate("DrawerOpen")*/}>
         <IOSIcon name="ios-menu" size={30} />
       </TouchableOpacity>
@@ -38,6 +44,24 @@ const stackNav = createStackNavigator({
     screen: Map,
     navigationOptions: ({ navigation }) => ({
       title: "Map",
+    })
+  },
+  Weather: {
+    screen: Weather,
+    navigationOptions: ({ navigation }) => ({
+      title: "Weather",
+    })
+  },
+  ContactInfo: {
+    screen: ContactInfo,
+    navigationOptions: ({ navigation }) => ({
+      title: "ContactInfo",
+    })
+  },
+  Informations: {
+    screen: Informations,
+    navigationOptions: ({ navigation }) => ({
+      title: "Informations",
     })
   },
   Home: {
