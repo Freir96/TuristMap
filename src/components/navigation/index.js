@@ -28,10 +28,11 @@ const drawernav = createDrawerNavigator({
   Item1: {
     screen: stackNav,//{ screen:({navigation}) => <stackNav screenProps={drawerNavigation: navigation} /> },
   }
-}, {
+}, /*{
   contentComponent: SideMenu,
-  drawerWidth: Dimensions.get('window').width - 120, 
+  drawerWidth: Dimensions.get('window').width - 120,
   drawerPosition: 'right',
-});
+}*/
+);
 export default createAppContainer(drawernav)
 //AppRegistry.registerComponent('Demo', () => drawernav);

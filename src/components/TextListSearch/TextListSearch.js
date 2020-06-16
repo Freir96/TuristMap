@@ -59,7 +59,7 @@ export default class TextListSearch extends React.Component {
     setShowcities(substring) {
         var tmp = [];
         for (var i = 0; i < this.state.places.length; i++) {
-            if (this.state.places[i].name.includes(substring)) {
+            if (this.state.places[i].name.toUpperCase().includes(substring.toUpperCase())) {
                 tmp.push({ name: this.state.places[i].name, key: this.state.places[i].id, id: this.state.places[i].id });
             }
         }
@@ -69,11 +69,12 @@ export default class TextListSearch extends React.Component {
     setShowPlaces(substring) {
         var tmp = [];
         for (var i = 0; i < this.state.places.length; i++) {
-            if (this.state.places[i].title.includes(substring) && this.state.places[i].title !== undefined) {
+            if (this.state.places[i].title.toUpperCase().includes(substring.toUpperCase()) && this.state.places[i].title !== undefined) {
                 tmp.push({ name: this.state.places[i].title, 
                     key: this.state.places[i].id, 
                     id: this.state.places[i].id, 
                     params: this.state.places[i], 
+                    type: this.state.places[i].type, 
                     prefix: this.state.places[i].city });
             }
         }
@@ -82,7 +83,7 @@ export default class TextListSearch extends React.Component {
 
     SearchFilterFunction(clear) {
         this.setState({ search: clear });
-        this.setShow(search);
+        this.setShow('');
     }
 
     /**
@@ -93,7 +94,8 @@ export default class TextListSearch extends React.Component {
         for (var i = 0; i < this.state.showPlaces.length; i++) {
             //console.log("bip one", this.state.showPlaces[i])
             tmp.push(<Element key={this.state.showPlaces[i].key}
-                type={this.props.type}
+                //type={this.props.type}
+                type={this.state.showPlaces[i].type}
                 id={this.state.showPlaces[i].id}
                 prefix={this.props.prefix}
                 place={this.state.showPlaces[i].name}
@@ -108,7 +110,8 @@ export default class TextListSearch extends React.Component {
         var tmp = [];
         for (var i = 0; i < this.state.showPlaces.length; i++) {
             tmp.push(<Element key={this.state.showPlaces[i].prefix + this.state.showPlaces[i].name}
-                type={this.props.type}
+                //type={this.props.type}
+                type={this.state.showPlaces[i].type}
                 id={this.state.showPlaces[i].id}
                 prefix={this.state.showPlaces[i].prefix}
                 place={this.state.showPlaces[i].name}

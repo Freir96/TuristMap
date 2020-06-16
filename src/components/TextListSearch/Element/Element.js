@@ -11,9 +11,15 @@ import {
 } from 'react-native';
 import styles from '../styles';
 import Icon from 'react-native-vector-icons/AntDesign';
+//import { getIcon } from './ElementIcon';
+import { getIcon } from '../../../services/IconService';
+
 import { useSelector } from 'react-redux';
 import Colors from '../../../helpers/Colors';
 import { AsyncStorage } from 'react-native';
+import NavigationService from '../../../services/NavigationService';
+import FavoriteButton from '../../Favorite/FavoriteButton';
+import colors from '../../../styles/colors';
 
 export default class Element extends React.Component {
     constructor(props) {
@@ -25,19 +31,27 @@ export default class Element extends React.Component {
             favkey: props.prefix !== undefined ? props.prefix + props.place : props.place,
             prefix: '',
             id: props.id,
+            subtext: props.subText !== 'undefined' && props.subText != undefined ? props.subText : '',
         }
+        //console.log("prop", props, props.subText)
         //this._retrieveData()
 
         //console.log('bip1', this.state.favorite)
-        console.log('bip22', props)
+        //console.log('bip22', props.type)
         this.navfunction = props.navfunction;
     }
 
     async componentDidMount() {
         //console.log("bip fav", await this.isonlist())
-        if (this.props.prefix !== undefined) {
+        if (this.props.subText !== undefined && this.props.subText !== 'undefined') {
+            this.setState({ subText: this.props.subText })
+            console.log(this.props.subText)
+        }
+        if (this.props.prefix !== undefined && this.props.prefix != 'undefined') {
             this.setState({ favkey: this.props.prefix + this.state.name })
-            console.log("bip key", this.state.favkey)
+        }
+        else {
+            console.log("prop", this.props)
         }
         this.setState({ favorite: await this.isonlist() })
 
@@ -129,67 +143,76 @@ export default class Element extends React.Component {
         //this.props.navfunction(this.state.name)
         console.log('bip3', this.state.name)
         //this.navfunction(this.state.name);//change back//or not
-        this.navfunction({name: this.state.name, id: this.state.id});
-
+        //this.navfunction({ name: this.state.name, id: this.state.id, favkey: this.state.favkey });
+        console.log("id", this.props.id)
+        NavigationService.navigate(this.props.type, { name: this.props.name, id: this.props.id })
     }
 
     render() {
-        //console.log('bip1', this.props.places)
-        if (this.state.name !== undefined && !(this.props.onlyFavorite && !this.state.favorite)) {
+        //console.log('bip1', this.state.subText)
+        if (this.state.name != undefined && this.state.name != 'undefined') {//&& !(this.props.onlyFavorite && !this.state.favorite)
             if (this.state.name.length > 1)
                 return (
                     <TouchableOpacity onPress={() => this._onPressButton()}>
                         <View style={styles.element, {
-                            borderBottomColor: 'black',
-                            borderBottomWidth: 1,
+                            //borderBottomColor: 'black',
+                            //borderBottomWidth: 1,
                             flex: 1, flexDirection: 'row',
                             justifyContent: 'space-between',
-                            height: 50,
+                            //height: 50,
                         }}>
-
-                            <View /*distance */>
-
-                            </View>
-                            <View style={{ position: 'absolute', left: 20, top: 5, alignSelf: "flex-end" }}/*circle photo */>
+                            {/*<View style={{ position: 'absolute', left: 20, top: 5, alignSelf: "flex-end" }}>
+                                {getIcon(this.state.type)}
                                 <Image
                                     style={{ overflow: "hidden", width: 40, height: 40, borderRadius: 20 }}//
                                     //source={require('../../assets/tmp/pobrany plik.jpg')}
                                     source={require('../../../assets/tmp/tower.jpg')}
                                 />
-                            </View>
+                            </View>*/}
                             <View /*name */>
-                                <Text style={{ fontSize: 20 }}>{this.state.name}</Text>
-                                {this.props.prefix !== undefined &&
+                                <Text style={styles.name}>{this.state.name}</Text>
+                                {this.props.subText != undefined && this.props.subText != 'undefined' &&
                                     <View>
-                                        <Text>{this.props.prefix}</Text>
+                                        <Text style={styles.subText}>
+                                            {this.props.subText}
+                                        </Text>
                                     </View>
                                 }
                             </View>
-                            <View /*save favorite */ style={{ marginRight: 10 }}>
+                            <FavoriteButton
+                                name={this.props.name}
+                                id={this.props.id}
+                                type={this.props.type}
+                                //Color={colors.primaryLight2}
+                            />
+                            {/*<View style={{ marginRight: 10, marginTop: 10, }}>
                                 <TouchableWithoutFeedback onPress={() => this.changeFavoriteData()}>
                                     <Icon size={30} color={Colors.yelow}
-                                        name={this.state.favorite ? 'heart' : 'hearto'}
-                                    //onPress={(event) => addToFavourites ? this.addToMyTopics(event, item.topicName) : this.removeFromMyTopics(event, item.topicName)} 
+                                        name={this.state.favorite ? 'star' : 'staro'} 
                                     />
                                 </TouchableWithoutFeedback>
-                            </View>
+                            </View>/*}}*/}
 
                         </View>
                     </TouchableOpacity>
 
                 )
-            else
+            else {
+                console.log("empty name")
                 return (
                     <View>
 
                     </View>
                 )
+            }
         }
-        else
+        else {
+            console.log("no name")
             return (
                 <View>
 
                 </View>
             )
+        }
     }
 }

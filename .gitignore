@@ -23,6 +23,7 @@ DerivedData
 project.xcworkspace
 
 # Android/IntelliJ
+java_pid4884.hprof
 #
 build/
 .idea

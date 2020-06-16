@@ -30,13 +30,13 @@ export default class Places extends React.Component {
         var allPlaces = [];
         console.log('bip cities', cities)
         for (var i = 0; i < cities.length; i++) {
-            let places = PlaceService.getPlacesFromCity(cities[i].name)//.map((place => {return {name: place, city: cities[i]}}))
+            let places = PlaceService.getPlacesFromCity(cities[i].name, this.props.navigation.state.params.place)//.map((place => {return {name: place, city: cities[i]}}))
             console.log('bip places', places)
             if (places !== undefined)
                 for (var j = 0; j < places.length; j++) {
                     //console.log('bip places2', tmp[j])
                     if (places[j] !== undefined)
-                        allPlaces.push({ title: places[j].name, city: cities[i].name, id: places[i].id})
+                        allPlaces.push({ title: places[j].name, city: cities[i].name, id: places[j].id, type: places[j].type})
 
                 }
 

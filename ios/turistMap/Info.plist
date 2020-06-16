@@ -69,8 +69,69 @@
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Montserrat-Black.otf</string>
+		<string>Montserrat-BlackItalic.otf</string>
+		<string>Montserrat-Bold.otf</string>
+		<string>Montserrat-BoldItalic.otf</string>
+		<string>Montserrat-ExtraBold.otf</string>
+		<string>Montserrat-ExtraBoldItalic.otf</string>
+		<string>Montserrat-ExtraLight.otf</string>
+		<string>Montserrat-ExtraLightItalic.otf</string>
+		<string>Montserrat-Italic.otf</string>
+		<string>Montserrat-Light.otf</string>
+		<string>Montserrat-LightItalic.otf</string>
+		<string>Montserrat-Medium.otf</string>
+		<string>Montserrat-MediumItalic.otf</string>
+		<string>Montserrat-Regular.otf</string>
+		<string>Montserrat-SemiBold.otf</string>
+		<string>Montserrat-SemiBoldItalic.otf</string>
+		<string>Montserrat-Thin.otf</string>
+		<string>Montserrat-ThinItalic.otf</string>
+		<string>MontserratAlternates-Black.otf</string>
+		<string>MontserratAlternates-BlackItalic.otf</string>
+		<string>MontserratAlternates-Bold.otf</string>
+		<string>MontserratAlternates-BoldItalic.otf</string>
+		<string>MontserratAlternates-ExtraBold.otf</string>
+		<string>MontserratAlternates-ExtraBoldItalic.otf</string>
+		<string>MontserratAlternates-ExtraLight.otf</string>
+		<string>MontserratAlternates-ExtraLightItalic.otf</string>
+		<string>MontserratAlternates-Italic.otf</string>
+		<string>MontserratAlternates-Light.otf</string>
+		<string>MontserratAlternates-LightItalic.otf</string>
+		<string>MontserratAlternates-Medium.otf</string>
+		<string>MontserratAlternates-MediumItalic.otf</string>
+		<string>MontserratAlternates-Regular.otf</string>
+		<string>MontserratAlternates-SemiBold.otf</string>
+		<string>MontserratAlternates-SemiBoldItalic.otf</string>
+		<string>MontserratAlternates-Thin.otf</string>
+		<string>MontserratAlternates-ThinItalic.otf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-SemiboldItalic.ttf</string>
+		<string>Dosis-Bold.otf</string>
+		<string>Dosis-ExtraBold.otf</string>
+		<string>Dosis-ExtraLight.otf</string>
+		<string>Dosis-Light.otf</string>
+		<string>Dosis-Medium.otf</string>
+		<string>Dosis-Regular.otf</string>
+		<string>Dosis-SemiBold.otf</string>
+		<string>texgyrepagella-bold.otf</string>
+		<string>texgyrepagella-bolditalic.otf</string>
+		<string>texgyrepagella-italic.otf</string>
+		<string>texgyrepagella-regular.otf</string>
+		<string>Anodina-Light.otf</string>
+		<string>Anodina-LightItalic.otf</string>
+		<string>Anodina-Regular.otf</string>
+		<string>Anodina-RegularItalic.otf</string>
 	</array>
 </dict>
 </plist>

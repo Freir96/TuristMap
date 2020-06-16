@@ -78,19 +78,27 @@ android {
             }
         }
     }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    } 
 }
 
 dependencies {
+    implementation project(':react-native-get-location')
+    implementation project(':react-native-date-picker')
+    implementation project(':react-native-linear-gradient')
+    implementation project(':@react-native-community_viewpager')
+    implementation project(':react-native-device-info')
     implementation project(':react-native-screens')
     implementation project(':react-native-reanimated')
-    implementation project(':react-native-cookies')
+    // implementation project(':react-native-cookies')
     implementation project(':react-native-fs')
     implementation project(':realm')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-paypal')
     implementation project(':react-native-localization')
     implementation project(':react-native-gesture-handler')
-    implementation project(':react-native-youtube')
+    //implementation project(':react-native-youtube')
     implementation project(':react-native-maps')
     implementation project(':react-native-i18n')
     implementation fileTree(dir: "libs", include: ["*.jar"])

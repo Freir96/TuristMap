@@ -1,0 +1,62 @@
+{
+    "sections": [[
+        {
+            "name": "KFC",
+            "city" : "Fuerteventura",
+            "description": "Go tu description",
+            "type": "restaurant",
+            "key": 1,
+            "coordinates": {
+                "latitude": 28.33333,
+                "longitude": -14.01667
+            }
+        },
+        {
+            "name": "Hilton",
+            "city" : "Fuerteventura",
+            "description": "Go tu description",
+            "type": "hotel",
+            "key": 7,
+            "coordinates": {
+                "latitude": 28.34333,
+                "longitude": -14.02667
+            }
+        },
+        {
+            "name": "KFC2",
+            "city" : "Fuerteventura",
+            "description": "Go tu description",
+            "type": "restaurant",
+            "key": 2,
+            "coordinates": {
+                "latitude": 28.33433,
+                "longitude": -14.01767
+            }
+        }
+    ],
+    [
+        {
+            "name": "Fuerteventura",
+            "city" : "Fuerteventura",
+            "description": "Go tu description",
+            "type": "restaurant",
+            "key": 3,
+            "coordinates": {
+                "latitude": 28.33333,
+                "longitude": -14.01667
+            }
+        },
+        {
+            "name": "Fuerteventura",
+            "city" : "Fuerteventura",
+            "description": "Go tu description",
+            "type": "restaurant",
+            "key": 4,
+            "coordinates": {
+                "latitude": 28.33433,
+                "longitude": -14.01767
+            }
+        }
+    ]
+]
+}

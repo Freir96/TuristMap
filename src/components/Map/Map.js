@@ -42,6 +42,7 @@ export default class Map extends React.Component{
         this.state = {
             markers: this.markers,
             place: this.getStartingMapCoordinates(),
+            region: {},
         }
     }
 
@@ -71,6 +72,7 @@ export default class Map extends React.Component{
                     <MapView.Marker
                         coordinate={marker.coordinates}
                         title={marker.title}
+                        onRegionChange={(region)=>this.setState({region: region})}
                         description={marker.description}
                         key={marker.key}
                         //onPress={() => props.navigation.navigate('Description', { param: marker })}
